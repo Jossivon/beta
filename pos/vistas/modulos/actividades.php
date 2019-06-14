@@ -1,72 +1,153 @@
-<<div class="content-wrapper">
+<div class="content-wrapper">
 
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
-          ACTIVIDADES
-          <small>ACTIVIDADES DEL PROYECTO</small>
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> INICIO</a></li>
-          <li><a href="#">PROYECTOS</a></li>
-        </ol>
-      </section>
+      <h1>
+        CACTIVIDAD
+        <small>TABLERO DE ACTIVIDADES</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="inicio"><i class="fa fa-dashboard"></i> INICIO</a></li>
+        <li><a href="#">ACTIVIDAD</a></li>
+      </ol>
+    </section>
 
     <!-- Main content -->
     <section class="content">
       <!-- Default box -->
       <div class="box">
-
+            <?php
+                include 'conexion.php';
+                $conexion=conectar();
+                $sqlMostrar="select * from activi ";
+                $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
+                
+            ?>
           <div class="box-header with-border">
-              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu">
-                Agregar Actividades
+              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu"> 
+                Agregar Actividad
               </button>
           </div>
 
           <div class="box-body">
             <table class="table table-bordered table-striped dt-responsive tablas ">
-              <caption>ACTIVIDADES</caption>
+              <caption>ACTIVIDAD</caption>
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Código</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Fecha Inicio</th>
-                  <th scope="col">Fecha Finalización</th>
-                  <th scope="col">Integrantes</th>
-
-                  <th scope="col">Acciones</th>
+                  <th scope="col">&nbsp;Código&nbsp;</th>
+                  <th scope="col">&nbsp;Nombre Actividad&nbsp;</th>
+                  <th scope="col">&nbsp;Fecha Inicio&nbsp;</th>
+                  <th scope="col">&nbsp;Fecha Fin&nbsp;</th>
+                  
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <th scope="row">1.1</th>
-                  <td>Diseñar e implementar una investigación sobre
-                     el uso de abonos verdes en la producción de quinua.</td>
-                  <td>enero 2019</td>
-                  <td>marzo 2019</td>
-                  <td>Lore Cj</td>
+                  <?php
 
-
-                  <td>
-                    <div class="btn-group">
-                      <button class="btn-warning"> <i class="fa fa-pencil"></i></button>
-                      <button class="btn-danger"> <i class="fa fa-times"></i></button>
-                    </div>
-                  </td>
-                </tr>
+                  while ($row=$result->fetch_assoc()){
+                    printf("<tr><td scope=\"row\">%s</td>"
+                            ."<td>&nbsp;%d&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td></tr>"
+                            ,$row['codigo'],$row['nombre'],$row['fechainicio'],$row['fechafin'],$row['codigo']); 
+                    }
+                  ?>
               </tbody>
             </table>
-          </div>
+          </div> 
       </div>
    </section>
 </div>
 
-<!-- Modal ------->
+<script>
+      function capturarid(id){
+          alert(id)
+      }
+</script>
+
+<!-- Modal -->
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form method="post " enctype= "multipart/form-data" >
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarActivi">
+       <div class="modal-header" style="background: #39CCCC; color:white">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR ACTIVIDAD</h5>
+        </div>
+
+
+      <div class="modal-body">
+        <div class="box-body">
+            <!----------------- CODIGO----------------------------------------->
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
+                    <input type="text" class="form-control input-lg" name="codigoactivi" placeholder="Código" required>
+             </div>
+             <br>
+        <!-------------------------------- NOMBRE DE ACTIVIDAD--------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombreactivi" placeholder="Nombre Actividad" required>
+                </div>
+              </div>
+
+              <!-------------------------------- FECHA INICIO --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="fechainicio" placeholder="Fecha Inicio" required>
+                </div>
+              </div>
+
+              <!---------------------------FECHA FIN-------------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                            <input type="text" class="form-control input-lg" name="fechafin" placeholder="Fecha Fin">
+                      </div>
+                    </div>
+
+              
+
+                
+              
+            <!----------------------------------------- SUBIR ARCHIVO ---------------------------------------->
+
+
+             <div class="form-group">
+                <div class="panle">Subir Archivo  </div>
+                <input type="file" id="foto" name="nuevo archivo">
+                <p class="help-block"> Peso máximo 200 MB</p>
+                <img src="vistas/img/usuarios/perfil.png" alt="">
+             </div>
+         </div>
+       </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+        <button type="submit" class="btn btn-primary">Agregar Actividad</button>
+      </div>
+    </form>
+  </div>
+ </div>
+</div>
+
+
+
+
+<!-- EDITAR -->
+
+<div class="modal fade" id="modalEditar"  role="dialog" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -76,48 +157,40 @@
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CÓDIGO --------------------------------------->
+            <!------------------- CODIGO ACTIVIDAD----------------------------------------->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="codigoactividad" placeholder="Código" required>
+                    <input type="text" class="form-control input-lg" name="codigoactivi" required>
              </div>
              <br>
-        <!-------------------------------- NOMBRE DE ACTIVIDAD --------------------------------->
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-book"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombreactividad" placeholder="Nombre de la Actividad" required>
-                </div>
-              </div>
-
-              <!-------------------------------- FEHCA INICIO--------------------------------->
+        
+              <!-------------------------------- NOMBRE ACTIVIDAD--------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="fechainicio" placeholder="Fecha Inicio" required>
+                      <input type="text" class="form-control input-lg" name="nombreactivi" required>
                 </div>
               </div>
 
-              <!------------------------------------FECHA FIN--------------------------------------------->
+              <!------------------------------------FECHA INICIO----------------------------------->
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="fechafin" placeholder="Fecha Fin">
+                            <input type="text" class="form-control input-lg" name="fechainicio">
                       </div>
                     </div>
 
-              <!------------------------------------- INTEGRANTES --------------------------------------->
+              <!------------------------------------- FECHA FIN --------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="integranteactividad" placeholder="Integrante de la actividad" >
+                            <input type="text" class="form-control input-lg" name="fechafin">
                       </div>
                     </div>
 
-                    </div>
-
-              <!----------------------------------------- CARGO ----------------------------------------->
+                
+              <!----------------------------------------- CARGO ----------------------------------------
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-users"></i></div>
@@ -130,16 +203,22 @@
                 </div>
               </div>
 
+-->
+             <div class="form-group">
+                <div class="panle">Subir Archivo   </div>
+                <input type="file" id="foto" name="nuevo archivo">
+                <p class="help-block"> Peso máximo 200 MB</p>
+                <img src="vistas/img/usuarios/perfil.png" alt="">
+             </div>
 
-
+         </div>
        </div>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Agregar Actividad</button>
+        <button type="submit" class="btn btn-primary">Agregar usuario</button>
       </div>
-
     </form>
   </div>
  </div>

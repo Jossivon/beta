@@ -31,7 +31,27 @@
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/responsive.bootstrap.min.css">
 
-  <link rel="stylesheet" href="sweetalert2.min.css">
+  <!-- ALERTIFY -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"/>
+  <!-- Default theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"/>
+  <!-- Semantic UI theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/semantic.min.css"/>
+  <!-- Bootstrap theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/bootstrap.min.css"/>
+
+  <!-- 
+      RTL version
+  -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.rtl.min.css"/>
+  <!-- Default theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.rtl.min.css"/>
+  <!-- Semantic UI theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/semantic.rtl.min.css"/>
+  <!-- Bootstrap theme -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/bootstrap.rtl.min.css"/>
+  
   <!--PLUGINS DE JAVASCRIPTS-->
 
     <!-- jQuery 3 -->
@@ -49,8 +69,14 @@
     <script src="vistas/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="vistas/bower_components/datatables.net-bs/js/dataTables.responsive.min.js"></script>
     <script src="vistas/bower_components/datatables.net-bs/js/responsive.bootstrap.min.js"></script>
-    <script src="sweetalert2.min.js"></script>
+    <!-- Sweet alert-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--<script src="vistas/js/plantilla.js"></script>-->
+    <!-- Funciones -->
+    <script src="vistas/js/funciones.js"></script>
+    <!--alertify -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"></script>
+
 
 </head>
 
@@ -76,7 +102,9 @@
              $_GET["ruta"] == "empresa" ||
              $_GET["ruta"] == "repempresa" ||
              $_GET["ruta"] == "actividades"||
-             $_GET["ruta"] == "ingresarCFac"){
+             $_GET["ruta"] == "ingresarCFac"||
+             $_GET["ruta"] == "actualizar"||
+             $_GET["ruta"] == "eliminar"){
               include "modulos/".$_GET["ruta"].".php";
           }else {
               include "modulos/404.php";

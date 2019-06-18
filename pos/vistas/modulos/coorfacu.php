@@ -1,3 +1,5 @@
+
+
 <div class="content-wrapper">
 
     <!-- Content Header (Page header) -->
@@ -34,7 +36,6 @@
                   <th scope="col">&nbsp;Correo&nbsp;</th>
                   <th scope="col">&nbsp;Telefono&nbsp;</th>
                   <th scope="col" style="width:8px">&nbsp;Carga Horario&nbsp;</th>
-                  <th scope="col">&nbsp;Cargo&nbsp;</th>
                   <th scope="col">&nbsp;Acciones&nbsp;</th>
                 </tr>
               </thead>
@@ -49,7 +50,7 @@
 
                   while ($row=$result->fetch_array()){
                     $variables=$row['cedula']."||".$row['nombre']."||".$row['apellido']."||".$row['correo']."||".$row['telefono']."||".$row['carga'];
-                    printf("<tr><td>%s</td>"
+                    printf("<tr><td>&nbsp;%s</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
@@ -57,11 +58,8 @@
                             ."<td>&nbsp;%d&nbsp;</td>"
                             ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
-                             <button class=\"btn-danger\"><i class=\"fa fa-times\" onclick=\"preguntar('$row[0]')\"></i></button>
-                              </div></td></tr>"
-                            ,$row['cedula'],$row['nombre'],$row['apellido'],$row['correo']
-                            ,$row['telefono'],$row['carga']);
-
+                             <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
+                              </div></td></tr>", $row['cedula'],$row['nombre'],$row['apellido'],$row['correo'],$row['telefono'],$row['carga']);
                     }
                   ?>
               </tbody>

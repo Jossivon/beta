@@ -104,8 +104,10 @@
              $_GET["ruta"] == "actividades"||
              $_GET["ruta"] == "ingresarCFac"||
              $_GET["ruta"] == "actualizar"||
-             $_GET["ruta"] == "eliminar"){
+             $_GET["ruta"] == "eliminar"||
+             $_GET["ruta"] == "darioelimina"){
               include "modulos/".$_GET["ruta"].".php";
+              
           }else {
               include "modulos/404.php";
           }

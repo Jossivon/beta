@@ -8,30 +8,24 @@ function agregaform(datos){
           $('#cargau').val(d[5]);
 }
 
+
 function preguntar(id){
-	alertify.confirm('Eliminar Datos', '¿Esta seguro?',
-				  function(){ eliminardatos(id) }
-                , function(){ alertify.error('Cancel')});
+	
+
+	alertify.confirm('Eliminar datos', 'Esta seguro', 
+		function(){eliminarU(id)},
+		function(){alertify.error('Cancelar')});
 
 }
 
-function eliminardatos(id){
-	cadena = "id" + id,
 
-	$.ajax({
-		url: 'eliminar',
-		type: 'POST',
-		data: cadena,
-		success:function(r){
-			if(r==1){
-			  alertify.success('Se elimino con exito');
-			}else{
-			  alertify.success('Fallo el servidor');
-			}
-		}
-		
-	});
-	
+function eliminarU(id){
 
+	cadena = "id="+ id;
 
+	 $.ajax({
+	 	type: "POST",
+	 	url:"eliminar",
+	 	data:cadena,
+	 });
 }

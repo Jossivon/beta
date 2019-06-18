@@ -4,7 +4,7 @@
     <section class="content-header">
       <h1>
         COORDINADOR DE FACULTAD
-        <small>TABLERO DE COORDINADOR DE FACULTAD</small>
+        <small>TABLERO DE COORDINADOR DE FACULTAD MI CAMBIO</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="inicio"><i class="fa fa-dashboard"></i> INICIO</a></li>

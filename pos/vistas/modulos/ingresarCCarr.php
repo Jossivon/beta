@@ -22,7 +22,7 @@ $conexion = conectar();
 
 
 //la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
-$sqlInsertar = "INSERT INTO `integrante` (`cedula`, `nombre`, `apellido`, `correo`, `telefono`, `carga`) VALUES ('$cedula', '$nombre', '$apellido', '$correo', '$telefono', '$carga')";
+$sqlInsertar = "INSERT INTO `intcarrera` (`cedula`, `nombre`, `apellido`, `correo`, `telefono`, `carga`) VALUES ('$cedula', '$nombre', '$apellido', '$correo', '$telefono', '$carga')";
 
 //la variable  resultado realiza la consulta con mysqli_query pasandole como entradas la variable conexion y la consulta, si marcha bien todo se ejecuta la consulta caso contrario pasa al error 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");

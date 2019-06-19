@@ -55,26 +55,26 @@
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+            <!------------------- CODIGO COMPONENTE ----------------------------------------->
           <div class="form-group">
               <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedulausuario" placeholder="Cédula" required>
+                  <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
+                    <input type="text" class="form-control input-lg" name="codigocomponente" placeholder="Código Componente" required>
              </div>
              <br>
-        <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
+        <!-------------------------------- DESCRIPCION --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombreusuario" placeholder="Nombre del integrante" required>
+                    <div class="input-group-addon"><i class="fa fa-audible"></i></div>
+                      <input type="text" class="form-control input-lg" name="descripcioncomponente" placeholder="Descripcion" required>
                 </div>
               </div>
 
-              <!-------------------------------- APELLIDO DEL USUARIO --------------------------------->
+              <!-------------------------------- LINEA BASE --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellidousuario" placeholder="Apellido del integrante" required>
+                    <div class="input-group-addon"><i class="fa fa-arrow-alt-circle-right"></i></div>
+                      <input type="text" class="form-control input-lg" name="lineabasecomponente" placeholder="Linea Base" required>
                 </div>
               </div>
 
@@ -93,4 +93,3 @@
   </div>
  </div>
 </div>
-

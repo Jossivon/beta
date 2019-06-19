@@ -65,7 +65,7 @@
         <!-------------------------------- DESCRIPCION --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-audible"></i></div>
+                    <div class="input-group-addon"><i class="fa fa-archive"></i></div>
                       <input type="text" class="form-control input-lg" name="descripcioncomponente" placeholder="Descripcion" required>
                 </div>
               </div>
@@ -73,7 +73,7 @@
               <!-------------------------------- LINEA BASE --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-arrow-alt-circle-right"></i></div>
+                    <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
                       <input type="text" class="form-control input-lg" name="lineabasecomponente" placeholder="Linea Base" required>
                 </div>
               </div>
